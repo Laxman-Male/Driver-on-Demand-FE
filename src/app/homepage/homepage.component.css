@@ -86,9 +86,16 @@ body {
 .cd-section {
     background: #f8f8f5;
     padding: 60px 20px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cd-container {
+    /* border: 2px solid red; */
+    width: 70%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -128,7 +135,8 @@ body {
 
 /* /services/ */
 #curr_services{
-	color: #0fb8ce;
+	color: rgb(9, 59, 207);
+    font-weight: 700;
 }
 .services {
     padding: 50px 20px;
@@ -137,15 +145,34 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
     gap: 20px;
     margin-top: 30px;
-	color: #0fb8ce;
-	font-size: 1.2rem;
+    color: rgb(9, 59, 207);
+    font-size: 1.2rem;
+}
+
+.services-for-flex{
+     display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 columns */
+    gap: 20px;
+    margin-top: 30px;
+    color: rgb(9, 59, 207);
+    font-size: 1.2rem;
+}
+.service-to-make-flex{
+    display: flex;
+    /* border: 2px solid red; */
+    align-items: center;
+    justify-content: center;
+}
+.service-to-make-flex .service-card{
+    width: 350px;
 }
 .service-card{
 	background: white;
     padding: 15px;
+    height: 150px;
     border-radius: 10px;
     box-shadow: 0 2px 6px #ccc;
 	cursor: pointer;
@@ -165,13 +192,17 @@ body {
 .enquire-btn {
     background: #0056ff;
     color: white;
-    padding: 12px 25px;
+    padding: 10px 20px;
+    height: auto;
     border: none;
     border-radius: 30px;
     font-weight: bold;
     cursor: pointer;
 }
 .enquiry{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 	background: #d4faff;
 	padding-top: 5px;
 	padding-bottom: 3rem;
@@ -203,7 +234,10 @@ body {
 
 /* FOOTER */
 .footer {
-    background: black;
+    background-image: url('https://images.unsplash.com/photo-1654168553002-669b5edec648?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+       background-size: cover;             /* make image cover entire element */
+    background-position: center;        /* center the image */
+    background-repeat: no-repeat; 
     color: white;
     padding: 60px 30px;
 }
@@ -212,6 +246,7 @@ body {
     font-size: 30px;
     margin-bottom: 20px;
 	text-align: center;
+    font-weight: 700;
 }
 
 .footer-grid {
