@@ -40,3 +40,46 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+
+# DEPLOYMENT PROCESS OF ANGULAR ON GITHUB
+# D:\User_L\Documents\DOD-\DOD-angular>ng add angular-cli-ghpages
+# √ Determining Package Manager
+#   › Using package manager: npm
+# √ Searching for compatible package version
+#   › Found compatible package version: angular-cli-ghpages@2.0.3.
+# √ Loading package information from registry
+# √ Confirming installation
+# √ Installing package
+# UPDATE angular.json (2798 bytes)
+
+# D:\User_L\Documents\DOD-\DOD-angular>ng deploy --base-href=/Driver-on-Demand-FE/
+# 📦 Building "DOD-angular"
+# 📦 Build target "DOD-angular:build:production"
+# Initial chunk files   | Names         |  Raw size | Estimated transfer size
+# main-XSDQQVFA.js      | main          | 194.28 kB |                52.98 kB
+# polyfills-B6TNHZQ6.js | polyfills     |  34.58 kB |                11.32 kB
+# styles-5INURTSO.css   | styles        |   0 bytes |                 0 bytes
+
+#                       | Initial total | 228.86 kB |                64.30 kB
+
+# Application bundle generation complete. [2.125 seconds]
+
+# Output location: D:\User_L\Documents\DOD-\DOD-angular\dist\dod-angular\browser
+
+# 404.html file created
+# .nojekyll file created
+# 🚀 Uploading via git, please wait...
+# Cloning https://github.com/Laxman-Male/Driver-on-Demand-FE.git into D:\User_L\Documents\DOD-\DOD-angular\node_modules\.cache\gh-pages\https!github.com!Laxman-Male!Driver-on-Demand-FE.git
+# Cleaning
+# Fetching origin
+# Checking out origin/gh-pages
+# Removing files
+# Copying files
+# Adding all
+# Committing
+# Pushing
+# 🌟 Successfully published via angular-cli-ghpages! Have a nice day!
+
+# D:\User_L\Documents\DOD-\DOD-angular>

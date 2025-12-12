@@ -1,17 +1,21 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
-  imports: [],
+   standalone: true,          // ← You must add this
+  imports: [CommonModule], 
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
 export class HomepageComponent {
+isMenuOpen = false;
 
- toggleMenu() {
-    const menu = document.getElementById("navMenu");
-    // menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+toggleMenu() {
+  this.isMenuOpen = !this.isMenuOpen;
+  console.log(this.isMenuOpen)
 }
+
 
  menuClick(message:any) {
     alert(message);
