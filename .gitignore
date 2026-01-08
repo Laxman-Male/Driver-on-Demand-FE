@@ -83,3 +83,6 @@ Thumbs.db
 # 🌟 Successfully published via angular-cli-ghpages! Have a nice day!
 
 # D:\User_L\Documents\DOD-\DOD-angular>
+
+# NEED TO RUN TO MAKE THE PROJECT LIVE 
+# ng deploy --base-href=/Driver-on-Demand-FE/

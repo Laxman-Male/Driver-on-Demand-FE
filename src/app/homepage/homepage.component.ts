@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -9,6 +10,8 @@ import { Component } from '@angular/core';
   styleUrl: './homepage.component.css'
 })
 export class HomepageComponent {
+constructor (private router:Router){}
+
 isMenuOpen = false;
 
 toggleMenu() {
@@ -28,4 +31,9 @@ toggleMenu() {
 // 	// window.location.href = ${indexedDB.html}.html;
 // 	//alert("Opening Services: " +type);
 // }
+goToProfileSection(){
+  console.log("hello")
+    this.router.navigate(['/profile']);
+
+}
 }

@@ -44,8 +44,9 @@ body {
 
 .nav-profile{
     font-size: 1.5rem;
+    cursor: pointer;
 }
-
+ 
 .menu-btn {
     display: none;
     font-size: 28px;
