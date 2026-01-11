@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register / Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="main-outer">
+
+           <p id="backBtn" (click)="goToHome()"> <i class="fa-solid fa-circle-arrow-left"></i> </p>
+        <div class="outer-container">
+            <div class="innner-container">
+                <h3 class="login">Register or Login</h3>
+                <div class="phoneNumber">
+                    <span>+91 </span><input type="text" placeholder="Enter phone number" [(ngModel)]="phoneNumber" maxlength="10" pattern="[0-9]*">
+
+                </div>
+                <button class="continueBtn" (click)="showOtp()">Continue</button>
+                <app-otp-screen *ngIf="passPhoneNumberToChild" [goingToOtp]="passPhoneNumberToChild"> </app-otp-screen>
+
+                <h4>OR</h4>
+                <button class="btn"><i class="fa-brands fa-google"></i>Continue with Google</button>
+                <button class="btn"><i class="fa-brands fa-apple"></i>Continue with Apple</button>
+
+                <p class="terms&Condition">By countinuing, you agree to our <a href="terms.html">Terms and
+                        Conditions</a> & <a href="terms.html">Privacy Policy.</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="app.js"></script> -->
+</body>
+
+</html>

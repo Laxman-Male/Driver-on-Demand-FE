@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title>
+    <!-- <link rel="stylesheet" href="OTPstyle.css" /> -->
+</head>
+<body>
+    <div class="outer-container">
+        <div class="innner-container">
+            <h3>OTP Verification</h3>
+             <p>We have sent a verification code to <!--temporay Number-->+91 {{userEnteredNumber}} </p> 
+            <h4 id="phoneNumber"></h4>
+            <div class="otpBox">
+                <!-- <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1"> -->
+                <!-- With Event Binding -->
+            <ng-otp-input   
+            [config]="otpConfig"
+            (onInputChange)="onOtpChange($event)">
+            </ng-otp-input>
+
+            </div>
+            <p>I didn't receive a code(00:21)</p>
+            <button (click)="redirectToName()">Confirm</button>
+            <p class="termsCondition">By clicking Confirm, you agree to our <a href="terms.html">Terms and Conditions</a> & <a href="terms.html">Privacy Policy.</a></p>
+        </div>
+    </div>
+    <!-- <script src="OTPapp.js"></script> -->
+</body>
+</html>
