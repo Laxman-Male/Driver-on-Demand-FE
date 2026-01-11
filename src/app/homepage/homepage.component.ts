@@ -20,7 +20,7 @@ ngOnInit(){
 
   setTimeout(()=>{
     if(loggedInName && loggedInNum){
-      this.router.navigate([''])
+      // this.router.navigate([''])
     } else{
     alert('please log in to website')
     this.router.navigate(['/login'])
