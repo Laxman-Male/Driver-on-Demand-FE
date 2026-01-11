@@ -1,0 +1,89 @@
+*{
+    font-family: Arial, sans-serif;
+}
+
+body{
+    
+     background-color: #dff6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+     height: 100vh;
+    margin: 0px;
+}
+
+.outer-container{
+    background-color: #fff;
+    border-radius: 1rem;
+    text-align: center;
+    padding: 0 2rem;
+    height:30rem;
+    width: 50%;
+}
+
+h3{
+    padding: 1rem;
+}
+
+input{
+    width: 10%;
+    height: 50px;
+    border-radius: 1rem;
+    margin: 0.8rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+p{
+    margin: 30px;
+}
+
+button{
+    border: 1px solid gray;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: medium;
+    text-align: center;
+    width: 30%;
+    height: 2.8rem;
+    margin-top: 2px;
+    background-color: #5bc7d6;
+    
+}
+button:hover {
+  background: #018496;
+  cursor: pointer;
+}
+
+.termsCondition{
+    padding-top: 2rem;
+}
+#otpBoxInput{
+   height: 40px;
+   width: 40px;
+}
+.otpBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 500px) {
+    button{
+    border: 1px solid gray;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: small;
+    text-align: center;
+    width: 50%;
+    height: 2.8rem;
+    margin-top: 2px;
+    background-color: #5bc7d6;
+    
+}
+.termsCondition{
+     font-size: 10px;
+    padding: 1px;
+    margin: 10px;
+}
+}

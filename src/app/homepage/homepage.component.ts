@@ -12,6 +12,23 @@ import { Route, Router } from '@angular/router';
 export class HomepageComponent {
 constructor (private router:Router){}
 
+ngOnInit(){
+  console.log("fist")
+
+  let loggedInNum=localStorage.getItem('userEnterNumber');
+  let loggedInName=localStorage.getItem('userName');
+
+  setTimeout(()=>{
+    if(loggedInName && loggedInNum){
+      this.router.navigate([''])
+    } else{
+    alert('please log in to website')
+    this.router.navigate(['/login'])
+  }
+  },5000)
+
+}
+
 isMenuOpen = false;
 
 toggleMenu() {

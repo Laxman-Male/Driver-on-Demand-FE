@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information</title>
+</head>
+
+<body>
+    <div class="outer-container">
+        <div class="innner-container">
+            <p>Your Number <!--temporay Number-->+91 {{userEnteredNumber}}
+                <br><br>
+                has now been verified.
+            </p>
+
+            <p>Enter your details</p>
+            <div class="userType">
+                <button id="individualBtn" (click)="indiActive()" [ngClass]="{'active-category': isIndividualActive}">
+                    Individual
+                </button>
+
+                <button id="organizationBtn" (click)="orgActive()"
+                    [ngClass]="{'active-category': isOrgActive}">Organization</button>
+            </div>
+            <p class="danger" *ngIf="isIndividualActive"> You will need Aadhaar / Driving licence </p>
+            <p class="danger" *ngIf="isOrgActive"> You will need GST document </p>
+
+
+            <br>
+            <input type="text" id="name" placeholder="Enter your name here..." [(ngModel)]="userName" > 
+            <br>
+
+            <label class="checkbox">
+                <input type="checkbox" id="agreeTerms" />
+                I agree to <a href="terms.html">Terms and Conditions</a>.
+            </label>
+            <br>
+
+            <!-- <button onclick="userVerified()">Continue</button> -->
+            <button id="userVerified" (click)="userVerified()" >Continue</button>
+
+        </div>
+    </div>
+    <script src="nameApp.js"></script>
+</body>
+
+</html>
