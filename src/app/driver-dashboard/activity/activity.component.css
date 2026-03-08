@@ -1,0 +1,124 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #1e293b;;
+}
+
+
+    body {
+      background-color: #ffffff;
+      /* color: #334155; */
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .past-rides-container {
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: 600;
+      /* color: #1e293b; */
+      margin-bottom: 24px;
+    }
+
+    /* ----- Card Styles ----- */
+    .ride-card {
+      background-color: #f8fafc; /* Very light bluish-gray */
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .ride-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ----- Header Section (Name, Badge, Date) ----- */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .user-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .ride-badge {
+      display: inline-block;
+      background-color: #e0e7ff;
+      color: #4338ca;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      width: fit-content;
+    }
+
+    .ride-date {
+      font-size: 13px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ride-date i {
+      font-size: 14px;
+    }
+
+    /* ----- Location Section (Pickup / Drop) ----- */
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .location-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .loc-icon {
+      font-size: 16px;
+      margin-top: 2px;
+    }
+
+    .icon-green { color: #10b981; }
+    .icon-red { color: #ef4444; }
+
+    .loc-details {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .loc-label {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .loc-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e293b;
+    }

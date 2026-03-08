@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Ride UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+</head>
+<body>
+
+    
+    
+    <div class="app-container">
+      <app-driver-common-nav></app-driver-common-nav>
+    <h1 class="header-title">Current Ride</h1>
+
+    <div class="map-card">
+      <div class="map-icon">
+        <i class="fa-regular fa-paper-plane"></i>
+      </div>
+      <div class="map-title">Map showing route</div>
+      <div class="map-subtitle">From Andheri West, Mumbai<br>To Bandra East, Mumbai</div>
+    </div>
+
+    <div class="details-card">
+      
+      <div class="detail-row">
+        <div class="icon-container icon-user">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <div class="info-container">
+          <div class="info-label">Customer Name</div>
+          <div class="info-value">Rajesh Kumar</div>
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="icon-container icon-distance">
+          <i class="fa-solid fa-location-arrow"></i>
+        </div>
+        <div class="info-container">
+          <div class="info-label">Total Distance</div>
+          <div class="info-value">12 km</div>
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="icon-container icon-car">
+          <i class="fa-solid fa-car-side"></i>
+        </div>
+        <div class="info-container">
+          <div class="info-label">Car Details</div>
+          <div class="info-value">Toyota Innova - MH 02 AB 1234</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="detail-row">
+        <div class="icon-container icon-pickup">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div class="info-container">
+          <div class="info-label">Pickup</div>
+          <div class="info-value">Andheri West, Mumbai</div>
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="icon-container icon-drop">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div class="info-container">
+          <div class="info-label">Drop</div>
+          <div class="info-value">Bandra East, Mumbai</div>
+        </div>
+      </div>
+
+      <button class="complete-btn">Complete Ride</button>
+
+    </div>
+  </div>
+
+</body>
+</html>

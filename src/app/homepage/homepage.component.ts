@@ -53,4 +53,7 @@ goToProfileSection(){
     this.router.navigate(['/profile']);
 
 }
+gotoDriverDashBoard(){
+  this.router.navigate(['/driver-dashboard'])
+}
 }
