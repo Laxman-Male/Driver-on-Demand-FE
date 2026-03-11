@@ -1,0 +1,52 @@
+<div id="mainContainer-outside">
+  <div class="outer-container">
+
+    <app-driver-common-nav></app-driver-common-nav>
+
+    <h3>Upcoming Rides Requests</h3>
+
+    <div *ngFor="let ride of upComingRides" class="ride-card">
+
+      <div class="inner-container">
+
+        <div class="left-section">
+
+          <button>{{ride.rideType}}</button>
+
+          <span><h4>{{ride.name}}</h4></span>
+
+          <i class="fa-solid fa-location-dot"></i> Pickup
+          <h4>{{ride.pickup}}</h4>
+
+          <i class="fa-solid fa-calendar"></i> Date & Time
+          <h4>{{ride.dateTime}}</h4>
+
+          <i class="fa-regular fa-car-side"></i> Customer's Car
+          <h4>{{ride.car}}</h4>
+
+          <i class="fa-solid fa-clock-rotate-left"></i> Duration
+          <h4>{{ride.duration}}</h4>
+
+        </div>
+
+        <div class="right-section">
+
+          <i class="fa-solid fa-location-dot"></i> Drop
+          <h4>{{ride.drop}}</h4>
+
+          <i class="fa-solid fa-car-side"></i> Distance
+          <h4>{{ride.distance}}</h4>
+
+        </div>
+
+      </div>
+
+      <div class="Action buttons">
+     <button class="accept" (click)="acceptRide(ride)">Accept</button>
+        <button class="reject">Reject</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

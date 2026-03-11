@@ -1,38 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, input, NgModule, OnChanges, SimpleChange, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgOtpInputComponent, NgOtpInputModule } from 'ng-otp-input';
+import { RideService } from '../../services/ride.service';
 
-// @NgModule({
-//   imports: [
-//     NgOtpInputModule,
-//   ],
-// })
-// @ViewChild(NgOtpInputComponent, { static: false }) ngOtpInput: NgOtpInputComponent;
+ 
 
 @Component({
   selector: 'app-otp-screen',
   standalone: true,
-  imports: [NgOtpInputModule,CommonModule],
+  imports: [NgOtpInputModule,CommonModule,FormsModule],
   templateUrl: './otp-screen.component.html',
   styleUrls: ['./otp-screen.component.css'],
   // imports: [NgOtpInputModule],
 })
-// @Component({
-//   standalone: true,
-//   imports: [NgOtpInputModule],
-// })
+ 
 
 export class OtpScreenComponent {
-constructor (private router:Router){ }
+constructor (private router:Router, private rideService: RideService){ }
   otpConfig = {
-  length: 4,
+  length: 6,
   allowNumbersOnly: true,
   
 };
 @Input() goingToOtp!: string;
 otpEnteredByUser:string=''
 userEnteredNumber:string=''
+otpForValidate!:number;
+
 
 onOtpChange(otp: string) {
   console.log('OTP:', otp);
@@ -42,40 +38,27 @@ onOtpChange(otp: string) {
 }
 
 ngOnInit(){
-  let a= localStorage.getItem('userEnterNumber') || ''
-  this.userEnteredNumber= a;
+  // let a= localStorage.getItem('userEnterNumber') || ''
+  this.userEnteredNumber= this.rideService.getNumberForOtp()
+  console.log(this.userEnteredNumber)
+  this.otpForValidate= this.rideService.validateOTP()
+  console.log(this.otpForValidate)
+  
 }
 
-//  ngOnChanges(changes: SimpleChange) :void {
-//     if (changes.goingToOtp) { // 👈 dot notation works safely
-//       console.log('Phone received in child:', changes.goingToOtp.currentValue);
-//     }
-//   }
-
-//   let phoneNum = "";
-// const phone = document.getElementById("phone").value;
-// phoneNum = "+91- "+phone;
-// document.getElementById("phoneNumber").innerText = phoneNum;
-
-// function redirectToName() {
-//      window.location.href = "name.html";
-//      return;
-// }
-// updateOtpValue() {
-//   this.ngOtpInput.setValue('12345'); // Replace with your OTP value.
-// }
+ 
 
 redirectToName(){
-  if(localStorage.getItem('userEnterNumber')){
+   
 
-    if(this.otpEnteredByUser=='1234'){
+    if(Number(this.otpEnteredByUser)== this.otpForValidate){
       this.router.navigate(['name-screen'])
       console.log("going to name")
     } else{
-      alert("wrong OTP")
+      alert("Entered wrong OTP")
     }
 
-  }
+  
 }
 
 }

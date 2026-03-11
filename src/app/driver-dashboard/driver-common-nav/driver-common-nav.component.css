@@ -1,0 +1,45 @@
+.outer-container{
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+.outer-container h2{
+    text-align: center;
+    margin-bottom: 15px;
+    color: #5a5af5;
+}
+h3{
+    margin: 20px;
+
+}
+.tabs{
+    display:flex;
+    gap: 10px;
+    margin-bottom: 20px;
+        background: rgb(200, 234, 246);
+    padding: 4px 3px;
+    border-radius: 14px;
+}
+.tabs button{
+    flex: 1;
+    padding: 8px;
+    background-color: #eee;
+    border-radius: 10px;
+    border: 1px solid lightblue;
+    font-weight: 600;
+    
+    background: whitesmoke;
+}
+/* Add this to your existing CSS file */
+
+.active-btn {
+  background-color: lightblue !important;
+  color: black !important;  
+  border-color: white !important;  
+}
+.logo{
+    width: 20px;
+}
+.brand{
+    width: 20px;
+}

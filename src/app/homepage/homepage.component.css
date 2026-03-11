@@ -269,6 +269,17 @@ body {
 .social-icons a:hover {
     font-size: 34px;
 }
+
+.dd-dashboard{
+    border: 1px solid lightblue;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+.profile-dd{
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+}
 /* RESPONSIVE */
 @media (max-width: 820px) {
 
