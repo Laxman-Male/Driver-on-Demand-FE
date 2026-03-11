@@ -13,94 +13,46 @@
 <body>
 
   <div class="past-rides-container">
-     <app-driver-common-nav></app-driver-common-nav>
-    <h1 class="page-title">Past Rides</h1>
+  <app-driver-common-nav></app-driver-common-nav>
+  <h1 class="page-title">Past Rides</h1>
 
-    <div class="ride-card">
-      <div class="card-header">
-        <div class="user-info">
-          <div class="user-name">Amit Verma</div>
-          <div class="ride-badge">Hourly ride</div>
-        </div>
-        <div class="ride-date">
-          <i class="fa-regular fa-calendar"></i> 2025-11-15
-        </div>
+  <div class="ride-card" *ngFor="let ride of pastRides">
+    <div class="card-header">
+      <div class="user-info">
+        <div class="user-name">{{ ride.name }}</div>
+        <div class="ride-badge">{{ ride.rideType }}</div>
       </div>
-      <div class="card-body">
-        <div class="location-row">
-          <div class="loc-icon icon-green"><i class="fa-solid fa-location-dot"></i></div>
-          <div class="loc-details">
-            <span class="loc-label">Pickup</span>
-            <span class="loc-value">Powai, Mumbai</span>
-          </div>
-        </div>
-        <div class="location-row">
-          <div class="loc-icon icon-red"><i class="fa-solid fa-location-dot"></i></div>
-          <div class="loc-details">
-            <span class="loc-label">Drop</span>
-            <span class="loc-value">Churchgate, Mumbai</span>
-          </div>
-        </div>
+      <div class="ride-date">
+        <i class="fa-regular fa-calendar"></i> {{ ride.dateTime }}
       </div>
     </div>
-
-    <div class="ride-card">
-      <div class="card-header">
-        <div class="user-info">
-          <div class="user-name">Neha Singh</div>
-          <div class="ride-badge">Outstation</div>
-        </div>
-        <div class="ride-date">
-          <i class="fa-regular fa-calendar"></i> 2025-11-14
+    <div class="card-body">
+      <div class="location-row">
+        <div class="loc-icon icon-green"><i class="fa-solid fa-location-dot"></i></div>
+        <div class="loc-details">
+          <span class="loc-label">Pickup</span>
+          <span class="loc-value">{{ ride.pickup }}</span>
         </div>
       </div>
-      <div class="card-body">
-        <div class="location-row">
-          <div class="loc-icon icon-green"><i class="fa-solid fa-location-dot"></i></div>
-          <div class="loc-details">
-            <span class="loc-label">Pickup</span>
-            <span class="loc-value">Mumbai</span>
-          </div>
+      <div class="location-row">
+        <div class="loc-icon icon-red"><i class="fa-solid fa-location-dot"></i></div>
+        <div class="loc-details">
+          <span class="loc-label">Drop</span>
+          <span class="loc-value">{{ ride.drop }}</span>
         </div>
-        <div class="location-row">
-          <div class="loc-icon icon-red"><i class="fa-solid fa-location-dot"></i></div>
-          <div class="loc-details">
-            <span class="loc-label">Drop</span>
-            <span class="loc-value">Nashik</span>
-          </div>
-        </div>
+      </div>
+      <div class="ride-extra">
+        <span>Car: {{ ride.car }}</span> |
+        <span>Duration: {{ ride.duration }}</span> |
+        <span>Distance: {{ ride.distance }}</span>
       </div>
     </div>
-
-    <div class="ride-card">
-      <div class="card-header">
-        <div class="user-info">
-          <div class="user-name">Rahul Kapoor</div>
-          <div class="ride-badge">One way</div>
-        </div>
-        <div class="ride-date">
-          <i class="fa-regular fa-calendar"></i> 2025-11-13
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="location-row">
-          <div class="loc-icon icon-green"><i class="fa-solid fa-location-dot"></i></div>
-          <div class="loc-details">
-            <span class="loc-label">Pickup</span>
-            <span class="loc-value">Vashi</span>
-          </div>
-        </div>
-        <div class="location-row">
-          <div class="loc-icon icon-red"><i class="fa-solid fa-location-dot"></i></div>
-          <div class="loc-details">
-            <span class="loc-label">Drop</span>
-            <span class="loc-value">Airoli</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
+
+  <div *ngIf="pastRides.length === 0">
+    <p>No rides completed yet.</p>
+  </div>
+</div>
 
 </body>
 </html>

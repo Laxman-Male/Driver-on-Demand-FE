@@ -19,6 +19,9 @@ isOrgActive:boolean= false;
 userName:string=''
 userEnteredNumber:string=''
 
+ isAgreed: boolean = false;   
+  showError: boolean = false; 
+
 
 ngOnInit(){
   let a= localStorage.getItem('userEnterNumber') || ''
@@ -36,20 +39,31 @@ orgActive(){
   this.isIndividualActive=false
 }
 
-userVerified(){
-  if(this.userName == ''){
-    alert('Please enter name')
-  } else{
-    if(localStorage.getItem('userEnterNumber')){
-      localStorage.setItem("isOrg",this.isOrgActive.toString());
-      localStorage.setItem("userName",this.userName)
-      this.router.navigate(['']);
-    }
+userVerified() {
+  
+  if (this.userName === '') {
+    alert('Please enter your name');
+    return;
   }
-  console.log("user registered")
+
+  // Check checkbox
+  if (!this.isAgreed) {
+    this.showError = true;  
+    return;
+  }
+
+  // Hide error if checkbox is checked
+  this.showError = false;
+
+  // Save details to localStorage
+  if (localStorage.getItem('userEnterNumber')) {
+    localStorage.setItem('isOrg', this.isOrgActive.toString());
+    localStorage.setItem('userName', this.userName);
+    this.router.navigate(['']);
+  }
+
+  console.log('User registered');
 }
-
-
 
 
 

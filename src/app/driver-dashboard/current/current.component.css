@@ -129,3 +129,16 @@
     .complete-btn:hover {
       background-color: #15803d;
     }
+
+    .disabled-btn{
+       background-color: gray;
+      color: white;
+      cursor: not-allowed;
+    }
+
+    .disabled-btn:hover{
+       background-color: rgb(68, 67, 67);
+      color: white;
+       
+    }
+    

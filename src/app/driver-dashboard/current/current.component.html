@@ -25,7 +25,7 @@
       <div class="map-subtitle">From Andheri West, Mumbai<br>To Bandra East, Mumbai</div>
     </div>
 
-    <div class="details-card">
+    <div class="details-card" >
       
       <div class="detail-row">
         <div class="icon-container icon-user">
@@ -33,7 +33,7 @@
         </div>
         <div class="info-container">
           <div class="info-label">Customer Name</div>
-          <div class="info-value">Rajesh Kumar</div>
+          <div class="info-value">{{currentRide?.name || 'NA' }} </div>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div class="info-container">
           <div class="info-label">Total Distance</div>
-          <div class="info-value">12 km</div>
+          <div class="info-value">{{currentRide?.distance || 'NA' }}</div>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
         </div>
         <div class="info-container">
           <div class="info-label">Car Details</div>
-          <div class="info-value">Toyota Innova - MH 02 AB 1234</div>
+          <div class="info-value">{{currentRide?.car || 'NA' }}</div>
         </div>
       </div>
 
@@ -65,7 +65,7 @@
         </div>
         <div class="info-container">
           <div class="info-label">Pickup</div>
-          <div class="info-value">Andheri West, Mumbai</div>
+          <div class="info-value">{{currentRide?.pickup || 'NA'}}</div>
         </div>
       </div>
 
@@ -75,11 +75,11 @@
         </div>
         <div class="info-container">
           <div class="info-label">Drop</div>
-          <div class="info-value">Bandra East, Mumbai</div>
+          <div class="info-value">{{currentRide?.drop || 'NA'}}</div>
         </div>
       </div>
 
-      <button class="complete-btn">Complete Ride</button>
+      <button  (click)="completeRide()" [disabled]="!currentRide"   [ngClass]="{'complete-btn': true, 'disabled-btn': !currentRide}" >Complete Ride</button>
 
     </div>
   </div>

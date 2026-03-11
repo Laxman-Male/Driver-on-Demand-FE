@@ -100,5 +100,4 @@ margin-top: 20px;
 .Action.buttons{
     grid-column: 1/2;
     flex-direction: column;
-
 }

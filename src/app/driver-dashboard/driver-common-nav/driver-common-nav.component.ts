@@ -27,6 +27,8 @@ this.router.navigate(['/driver-current'])
   gotoDashboradUpcomingRide(){
     this.router.navigate(['/driver-dashboard'])
   }
-
+goToHome(){
+  this.router.navigate([''])
+}
 
 }

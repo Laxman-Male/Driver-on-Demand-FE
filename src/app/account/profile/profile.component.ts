@@ -14,7 +14,10 @@ goToHome(){
   this.route.navigate([''])
 }
 
-
+logoutUser(){
+  localStorage.clear();
+  this.route.navigate([''])
+}
 // function applyCoupon(code) {
 //     alert("Coupon applied: " + code);
 // }
