@@ -54,6 +54,7 @@ showOtp() {
       console.log('OTP sent to email:', this.generatedOtp);
       this.rideService.storeOTP(Number(this.generatedOtp))
       alert("OTP send to email")
+      localStorage.setItem("userPhoneNumber",this.phoneNumber)
        
       this.passPhoneNumberToChild = this.phoneNumber; // pass the number
       this.router.navigate(['/otp-screen'])
