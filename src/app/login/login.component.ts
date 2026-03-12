@@ -23,7 +23,7 @@ passPhoneNumberToChild:string='';
  
 // phoneNumber: string = '';        // user-entered mobile number
 generatedOtp: string = '';       // store OTP temporarily
-// passPhoneNumberToChild: boolean = false;  // trigger child OTP component
+ 
 
 // acceptRide(ride: upComingRide){
 //   this.rideService.setCurrentRide(ride);
