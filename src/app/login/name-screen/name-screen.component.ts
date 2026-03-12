@@ -56,7 +56,7 @@ userVerified() {
   this.showError = false;
 
   // Save details to localStorage
-  if (localStorage.getItem('userEnterNumber')) {
+  if (localStorage.getItem('userPhoneNumber')) {
     localStorage.setItem('isOrg', this.isOrgActive.toString());
     localStorage.setItem('userName', this.userName);
     this.router.navigate(['']);

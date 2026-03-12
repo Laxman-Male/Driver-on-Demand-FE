@@ -23,7 +23,7 @@ passPhoneNumberToChild:string='';
  
 // phoneNumber: string = '';        // user-entered mobile number
 generatedOtp: string = '';       // store OTP temporarily
-// passPhoneNumberToChild: boolean = false;  // trigger child OTP component
+ 
 
 // acceptRide(ride: upComingRide){
 //   this.rideService.setCurrentRide(ride);
@@ -53,6 +53,8 @@ showOtp() {
     .then(() => {
       console.log('OTP sent to email:', this.generatedOtp);
       this.rideService.storeOTP(Number(this.generatedOtp))
+      alert("OTP send to email")
+      localStorage.setItem("userPhoneNumber",this.phoneNumber)
        
       this.passPhoneNumberToChild = this.phoneNumber; // pass the number
       this.router.navigate(['/otp-screen'])

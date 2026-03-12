@@ -15,9 +15,10 @@ constructor (private router:Router){}
 ngOnInit(){
   console.log("fist")
 
-  let loggedInNum=localStorage.getItem('userEnterNumber');
+  let loggedInNum=localStorage.getItem('userPhoneNumber');
   let loggedInName=localStorage.getItem('userName');
 
+  console.log(loggedInName, loggedInNum)
   setTimeout(()=>{
     if(loggedInName && loggedInNum){
       // this.router.navigate([''])
