@@ -1,0 +1,133 @@
+.rides-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.rides-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* The Main Card */
+.ride-card {
+  background-color: rgb(75, 187, 252);
+  border: 1px solid rgb(126, 202, 246);
+  border-radius: 12px;
+  color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Keeps the corners rounded */
+}
+
+/* Header Section */
+.card-header {
+  background-color: rgba(0, 0, 0, 0.1); /* Slight dark tint for header */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(126, 202, 246);
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.status-badge.pending {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.status-badge.completed {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Body Section */
+.card-body {
+  padding: 20px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.detail-row i {
+  font-size: 1.2rem;
+  width: 30px;
+  text-align: center;
+  margin-right: 15px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.detail-text small {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-text p {
+  margin: 3px 0 0 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Grid for Side-by-Side details (Dates/Times) */
+.detail-grid {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.15); /* Soft white highlight box */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+}
+
+.grid-item i {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.grid-item small {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.grid-item p {
+  margin: 2px 0 0 0;
+  font-weight: bold;
+}
+
+/* Car Details Box */
+.car-details-box {
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 10px 15px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.car-details-box i {
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
