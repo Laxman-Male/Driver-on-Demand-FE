@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Ride</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">    
+	<!-- <link rel="stylesheet" href="style1.css"> -->
+</head>
+
+<body>
+ <div class="carDetails">
+  <div class="inner">
+    <h1>Fill Vehicle Details</h1>
+    <form #carForm="ngForm" (ngSubmit)="submitDetails(carForm)">
+
+      <div class="formField">
+        <label for="carName">Car Name</label><br><br>
+        <input type="text" 
+               id="carName"
+               name="carName"
+               placeholder="Enter car name"
+               [(ngModel)]="carName" 
+               required
+               #carNameRef="ngModel">
+        <div *ngIf="carNameRef.invalid && carNameRef.touched" style="color:red;">
+          Car Name is required
+        </div>
+      </div>
+
+      <div class="formField">
+        <label for="vehicleNo">Vehicle Number</label><br><br>
+        <input type="text" 
+               id="vehicleNo"
+               name="carNumber"
+               placeholder="Enter vehicle number"
+               [(ngModel)]="carNumber" 
+               required
+               #carNumberRef="ngModel">
+        <div *ngIf="carNumberRef.invalid && carNumberRef.touched" style="color:red;">
+          Vehicle Number is required
+        </div>
+      </div>
+
+      <br><br>
+      <div id="buttonForSub">
+        <button type="submit" class="submit">Submit</button>
+        <button type="button" (click)="closePopup()" class="cancel">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

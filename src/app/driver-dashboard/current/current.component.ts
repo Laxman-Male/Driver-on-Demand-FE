@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DriverCommonNavComponent } from '../driver-common-nav/driver-common-nav.component';
 import { RideService } from '../../services/ride.service';
-import { upComingRide } from '../../model/ride';
+import { PendingRide, upComingRide } from '../../model/ride';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -17,10 +17,13 @@ export class CurrentComponent {
     private rideService: RideService,
     private router: Router,
   ) {}
-  currentRide: upComingRide | null = null;
+  currentRide: PendingRide | null = null;
+  // @Input() fromUpcoming!: PendingRide;
+  
 
   ngOnInit() {
-    this.currentRide = this.rideService.getCurrentRide();
+    this.currentRide = this.rideService.getCurrentRideInCurrentRide()
+    console.log("---------",this.currentRide)
   }
 
   gotoCurrentRide() {

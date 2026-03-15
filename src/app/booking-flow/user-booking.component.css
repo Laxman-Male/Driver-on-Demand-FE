@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+#heading{
+    margin-left: 10%;
+    margin-bottom: 20px;
+    /* margin-top: 20px; */
+}
+h1,h4{
+	color: white;
+}
+ 
+
+.booking-container {
+	min-height: 400px;
+    width: 80%;
+    margin: auto;
+    background: #d0faff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 5px;
+    display: block;
+	font-style: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.radio-group label{
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 20px;
+}
+
+.radio-group input[type="radio"]{
+    margin: 0;
+}
+
+.book-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #02203c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.carIcon {
+    text-align: center;
+    font-size: 70px;
+    margin-top: 110px;
+    color: #004aad;
+}
+
+.hidden {
+    display: none;
+}
+body{
+	background-color: #011F4B;
+    height: auto;
+    width: 100%;
+    padding: 20px 0px;
+    min-height: 100vh;
+}
+
+#showMiddlePopUp{
+    position: absolute;
+    content: "";
+    top: 30%;
+    left: 30%;
+}
+
+#showCarDetailsToUser{
+    border: 1px solid rgb(152, 213, 239);
+    border-radius: 10px;
+    padding: 7px;
+    margin: 15px;
+    margin-left: 0px;
+}
+#showCarDetailsToUser p{
+    margin: 8px;
+    font-size: 20px;
+}
+.getCurrentLocation{
+    border: 1px solid rgb(126, 202, 246);
+   /* margin-top: 0px; */
+    padding: 5px;
+    border-radius: 10px;
+      justify-self: center;
+  height: 38px;
+}
+.getCurrentLocation:hover{
+    border: 1px solid rgb(126, 202, 246);
+    background-color: rgb(75, 187, 252);
+   /* margin-top: 0px; */
+   color: white;
+   transform: scale(1.09);
+   cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+      justify-self: center;
+  height: 38px;
+}
+
+#pickUpLocationDisplay {
+  display: grid;
+  grid-template-columns: 80% 20%; /* first column 80%, second 20% */
+  gap: 10px; /* optional, space between input and button */
+  /* align-items: center; */
+
+}
+
+#calculatePrice{
+        display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+#calculatePrice p {
+    border: 2px solid rgb(113, 245, 157) ;
+    background-color: rgb(148, 239, 123);
+    padding: 5px 8px;
+    border-radius: 10px;
+}
+#calculatePrice p:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+        background-color: rgb(148, 239, 123);
+}
+
+#yourRide{
+     display: flex;
+     flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    gap: 4px;
+
+    border: 2px solid rgb(113, 245, 157) ;
+    background-color: rgb(148, 239, 123);
+    padding: 5px 10px;
+    border-radius: 10px;
+
+}
+
+#yourRide {
+
+}

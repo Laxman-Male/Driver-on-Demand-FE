@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RideService } from '../../services/ride.service';
 
 @Component({
   selector: 'app-name-screen',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 
 
 export class NameScreenComponent {
-  constructor (private router:Router) { }
+  constructor (private router:Router, private riderService:RideService) { }
 isIndividualActive:boolean= false;
 isOrgActive:boolean= false;
 userName:string=''
@@ -40,8 +41,7 @@ orgActive(){
 }
 
 userVerified() {
-  
-  if (this.userName === '') {
+  if (!this.userName) {
     alert('Please enter your name');
     return;
   }
@@ -52,17 +52,37 @@ userVerified() {
     return;
   }
 
-  // Hide error if checkbox is checked
   this.showError = false;
 
-  // Save details to localStorage
-  if (localStorage.getItem('userPhoneNumber')) {
+  const mob = localStorage.getItem('userPhoneNumber') || '';
+
+  if (mob) {
+    // Save local data
     localStorage.setItem('isOrg', this.isOrgActive.toString());
     localStorage.setItem('userName', this.userName);
-    this.router.navigate(['']);
+
+    // Prepare JSON body
+    const body = {
+      name: this.userName,
+      phoneNumber: mob
+    };
+
+    // Call API
+    this.riderService.LoginTheUser(body).subscribe(
+      (res: any) => {
+        console.log('Register response:', res);
+        localStorage.setItem("role",res.role)
+        
+        this.router.navigate(['']); // navigate after success
+      },
+      (err: any) => {
+        console.error('Error registering user:', err);
+        alert('Failed to register user');
+      }
+    );
   }
 
-  console.log('User registered');
+  console.log('User registration attempted');
 }
 
 

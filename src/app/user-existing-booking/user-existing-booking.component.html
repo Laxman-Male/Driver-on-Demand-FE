@@ -1,0 +1,86 @@
+<div class="rides-container">
+    <p (click)="gotoHomePage()" style="cursor: pointer;">  ⬅️ </p>
+  <h2>My Booked Rides</h2>
+
+  <div class="ride-card">
+    <div class="card-header">
+      <h3>Hourly Driver</h3>
+      <span class="status-badge pending">Pending</span>
+    </div>
+
+    <div class="card-body">
+      <div class="detail-row">
+        <i class="fa-solid fa-location-dot"></i>
+        <div class="detail-text">
+          <small>Pickup</small>
+          <p>Dattawadi, Anandnagar, Pune City</p>
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <i class="fa-solid fa-location-arrow"></i>
+        <div class="detail-text">
+          <small>Drop</small>
+          <p>Karve Nagar, Pune</p>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="grid-item">
+          <i class="fa-regular fa-clock"></i>
+          <div>
+            <small>Time</small>
+            <p>23:00</p>
+          </div>
+        </div>
+        <div class="grid-item">
+          <i class="fa-solid fa-hourglass-half"></i>
+          <div>
+            <small>Duration</small>
+            <p>5 Hours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ride-card">
+    <div class="card-header">
+      <h3>Weekly Driver</h3>
+      <span class="status-badge completed">Completed</span>
+    </div>
+
+    <div class="card-body">
+      <div class="detail-row">
+        <i class="fa-solid fa-house"></i>
+        <div class="detail-text">
+          <small>Address</small>
+          <p>123 Main Street, Shivaji Nagar, Pune</p>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="grid-item">
+          <i class="fa-regular fa-calendar-check"></i>
+          <div>
+            <small>Start Date</small>
+            <p>2026-03-16</p>
+          </div>
+        </div>
+        <div class="grid-item">
+          <i class="fa-regular fa-calendar-xmark"></i>
+          <div>
+            <small>End Date</small>
+            <p>2026-03-23</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-details-box">
+        <i class="fa-solid fa-car"></i>
+        <span><b>My Car:</b> Honda City (MH12 AB 1234)</span>
+      </div>
+    </div>
+  </div>
+
+</div>

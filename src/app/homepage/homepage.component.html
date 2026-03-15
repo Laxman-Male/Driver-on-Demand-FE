@@ -28,8 +28,12 @@
             <a href="#contact">Contact Us</a>
         </nav>
 <div class="profile-dd">
-<div class="dd-dashboard" (click)="gotoDriverDashBoard()" >
+<div class="dd-dashboard" (click)="gotoDriverDashBoard()" *ngIf="userType=='driver'" >
     Driver Dashboard
+</div>
+
+<div class="dd-dashboard" (click)="gotoYourBookings()" *ngIf="userType=='customer'" >
+    Your Bookings
 </div>
     <div class="nav-profile" (click)="goToProfileSection()">
         <i class="fa-solid fa-user"></i>
@@ -45,8 +49,8 @@
         <h2>DRIVER AT DOOR STEP</h2>
 
         <div class="hero-buttons">
-            <button onclick="buttonAction('Request For Own Car')">REQUEST FOR OWN CAR →</button>
-            <button onclick="buttonAction('Request A Ride')">REQUEST A RIDE →</button>
+            <button (click)="goToBookingFlow()">REQUEST FOR OWN CAR →</button>
+            <button (click)="goToBookingFlow()">REQUEST A RIDE →</button>
         </div>
     </section>
 
@@ -106,7 +110,13 @@
    <section class="enquiry">
         <p class="doubt-text">Have Doubt?<br>Please feel free to reach out !</p>
 
-        <button class="enquire-btn" onclick="buttonAction('Enquire Now Clicked')">Enquire Now</button>
+        <button class="enquire-btn" (click)="buttonAction()">Enquire Now</button>
+     </section>
+
+   <section class="enquiry">
+        <p class="doubt-text"> Want to Become Driver! <br> Just put Message</p>
+
+        <button class="enquire-btn" (click)="RequestToBecomeDriver()"> Send Request</button>
      </section>
 	
 
@@ -168,6 +178,45 @@
         </div>
     </footer>
 
+    <div id="DoubtForm" *ngIf="showDoubtPopUp">
+        <p style="align-self: flex-end; cursor: pointer;" (click)="gotoHome()"> ❌ </p>
+        <label style="margin-bottom: -10px;"> Name </label>
+        <div>
+            <input type="text" [(ngModel)]="NameforDoubt">
+        </div>
+        <label style="margin-bottom: -10px;"> Number </label>
+        <div>
+            <input type="number" [(ngModel)]="numberForDoubt">
+        </div>
+        <label style="margin-bottom: -10px;"> Your Doubt </label>
+        <div>
+            <textarea [(ngModel)]="textForDoubt"></textarea>
+        </div>
+        <div>
+            <button (click)="closeDoubtPopUp()"> Submit </button>
+        </div>
+    </div>
+
+
+    <div id="RequestToBecomeDriver" *ngIf="showRequestPopUp">
+        <p style="align-self: flex-end; cursor: pointer;" (click)="gotoHome()"> ❌ </p>
+        <label style="margin-bottom: -10px;"> Name </label>
+        <div>
+            <input type="text" [(ngModel)]="NameforDoubt">
+        </div>
+        <label style="margin-bottom: -10px;"> Number </label>
+        <div>
+            <input type="number" [(ngModel)]="numberForDoubt">
+        </div>
+        <label style="margin-bottom: -10px;"> Do you have car? </label>
+        <div id="forRadioCenter">
+            <input type="radio" name="isCar"> Yes
+            <input type="radio" name="isCar"> No 
+        </div>
+        <div>
+            <button (click)="closeRequestPopUp()"> Submit </button>
+        </div>
+    </div>
     <!-- <script src="app1.js"></script> -->
 </body>
 </html>

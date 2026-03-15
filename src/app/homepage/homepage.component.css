@@ -392,3 +392,93 @@ body {
         padding: 10px 30px;
     }
 }
+
+#DoubtForm{
+    border: 1px solid rgb(101, 208, 244);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 400px;
+    border-radius: 15px;
+    background-color: rgb(172, 231, 240);
+    padding: 10px;
+}
+#DoubtForm  div input{
+    border: 1px solid gray;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+#DoubtForm  div textarea{
+    border: 1px solid gray;
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+#DoubtForm  div button{
+    border: 1px solid gray;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: rgb(143, 246, 143);
+}
+
+#DoubtForm{
+    position: absolute;
+    top: 250%;
+    left: 30%;
+}
+
+#RequestToBecomeDriver{
+    border: 1px solid rgb(101, 208, 244);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 400px;
+    border-radius: 15px;
+    background-color: rgb(172, 231, 240);
+    padding: 10px;
+}
+#RequestToBecomeDriver  div input{
+    border: 1px solid gray;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+
+#RequestToBecomeDriver div input[type="radio"] {
+    accent-color: #4338ca; 
+    cursor: pointer;
+    width: 20px;          
+    height: 20px;
+    margin-right: 8px;    
+}
+
+#RequestToBecomeDriver  div button{
+    border: 1px solid gray;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: rgb(143, 246, 143);
+}
+
+#RequestToBecomeDriver{
+    position: absolute;
+    top: 250%;
+    left: 30%;
+}
+
+#forRadioCenter{
+    display: flex;
+    gap: 5px;
+}

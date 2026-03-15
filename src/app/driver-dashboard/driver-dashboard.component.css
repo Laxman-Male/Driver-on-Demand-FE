@@ -19,9 +19,9 @@
     max-width: 1000px;
 }
 .outer-container h2{
-    text-align: center;
+    text-align: start;
     margin-bottom: 15px;
-    color: #5a5af5;
+    color: rgb(16, 173, 16);
 }
 h3{
     margin: 20px;
@@ -101,3 +101,107 @@ margin-top: 20px;
     grid-column: 1/2;
     flex-direction: column;
 }
+
+
+/* ------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+#mainContainer-outside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Gives some breathing room on small screens */
+}
+
+.outer-container {
+  background-color: aliceblue;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.outer-container h3 {
+  margin: 20px 0;
+  color: #5a5af5;
+}
+
+/* Added this to separate the cards! */
+.ride-card {
+  margin-bottom: 25px; 
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.inner-container {
+  background: #f9fbff;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+
+.left-section, .right-section {
+  line-height: 1.8;
+}
+
+.left-section h4, .right-section h4 {
+  margin-top: 2px;
+  margin-bottom: 10px; /* Creates spacing between details */
+  color: #333;
+}
+
+.left-section button {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.left-section i, .right-section i {
+  margin-right: 8px;
+  color: #555;
+}
+
+/* Fixed the class name syntax here */
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  padding: 15px 20px;
+  background: #f9fbff;
+  border-top: 1px solid #e1e8f5;
+}
+
+.accept {
+  flex: 1;
+  background: green;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.reject {
+  flex: 1;
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.accept:hover { background: darkgreen; }
+.reject:hover { background: darkred; }

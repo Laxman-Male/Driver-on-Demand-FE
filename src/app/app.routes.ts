@@ -8,6 +8,9 @@ import { DriverDashboardComponent } from './driver-dashboard/driver-dashboard.co
 import { CurrentComponent } from './driver-dashboard/current/current.component';
 import { RewardComponent } from './driver-dashboard/reward/reward.component';
 import { ActivityComponent } from './driver-dashboard/activity/activity.component';
+import { UserBookingComponent } from './booking-flow/user-booking.component';
+import { PopupComponent } from './popup/popup.component';
+import { UserExistingBookingComponent } from './user-existing-booking/user-existing-booking.component';
 
 export const routes: Routes = [
     {
@@ -45,5 +48,18 @@ export const routes: Routes = [
     {
         path:'driver-reward',
         component:RewardComponent
+    },
+    {
+        path:'booking-flow',
+        component:UserBookingComponent
+    },
+    {
+        path:'own',
+        component:PopupComponent
+    },
+    {
+        path:'user-bookings/exist',
+        component:UserExistingBookingComponent
     }
 ];
+
