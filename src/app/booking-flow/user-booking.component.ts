@@ -137,7 +137,7 @@ dropLat!: number;
       next: (response: any) => {
         console.log("Booking successful!", response);
         alert("Ride booked successfully!");
-        // Optional: clear the form or navigate the user to a success page here
+        
       },
       error: (err) => {
         console.error("Error booking ride:", err);
@@ -146,7 +146,7 @@ dropLat!: number;
     });
 
     setTimeout(() => {
-      this.router.navigate([''])
+      this.router.navigate(['/user-bookings/exist'])
     }, 5000);
 
   }
@@ -175,7 +175,7 @@ editRadio(){
 
     console.log('Car Name:', this.carName);
     console.log('Car Number:', this.carNumber);
-    // this.showPopUp = false; // hide popup
+    
     this.hasCar=true
   }
 
@@ -189,7 +189,7 @@ editRadio(){
         console.log('User location:', this.userLat, this.userLng);
 
 
-        // Automatically fill the input with the actual address
+        // Automatically fill the input 
         this.reverseGeocode(this.userLat, this.userLng);
 
       },
@@ -207,10 +207,10 @@ editRadio(){
   console.log("Fetching address from Nominatim...");
   const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
 
-  // Use a fallback so the UI doesn't stay empty if the API fails
+  // if the API fails
   fetch(url, {
     headers: {
-      'Accept-Language': 'en' // Helps identify the request
+      'Accept-Language': 'en' 
     }
   })
     .then(res => {
@@ -225,7 +225,7 @@ editRadio(){
     })
     .catch(err => {
       console.error('Fetch error:', err);
-      // IMPORTANT FALLBACK: If API fails, show coordinates so user can still book
+       
       this.pickupLocation = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
     });
 }
@@ -238,16 +238,14 @@ getDropCoordinates() {
 
     console.log("Looking up drop coordinates for:", this.dropLocation);
     
-    // Encode the text so spaces and special characters don't break the URL
-    const encodedAddress = encodeURIComponent(this.dropLocation);
+     const encodedAddress = encodeURIComponent(this.dropLocation);
     const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodedAddress}&limit=1`;
 
     fetch(url)
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
-          // Nominatim returns them as strings, so we parse them to decimals
-          this.dropLat = parseFloat(data[0].lat);
+           this.dropLat = parseFloat(data[0].lat);
           this.dropLng = parseFloat(data[0].lon);
           
           console.log(`✅ Drop coordinates found: Lat ${this.dropLat}, Lng ${this.dropLng}`);
@@ -293,7 +291,7 @@ fetch(osrmUrl)
       console.log(`🚗 Route Found: ${this.distanceText}`);
       console.log(`⏱️ Est. Time: ${this.durationText}`);
 
-      //calling backend api to get distanse calculated
+      //calling   api  
       this.fetchRateAndCalculateTotal(this.distanceInKm);
       
     } else {
@@ -310,7 +308,7 @@ fetchRateAndCalculateTotal(distance: number) {
       next: (response: any) => {
         console.log("Backend Response:", response);
         
-        const ratePerKm = response.ratePerKM; // This matches the JSON key from Go!
+        const ratePerKm = response.ratePerKM; 
         
         // Calculate the final price
         this.totalFare = distance * ratePerKm;
@@ -325,49 +323,5 @@ fetchRateAndCalculateTotal(distance: number) {
     });
   }
 
-
-// reverseGeocode(lat: number, lng: number) {
-//   console.log("in rev")
-//   // let apiKey=environment.GoogleMapApi;
-//   let apiKey="AIzaSyDHOV3DYbT5VzRr15UN9UFRGq5exXNTZA8";
-//   // const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY'; // replace with your key
-//   const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
-
-//   fetch(url)
-//     .then(res => res.json())
-//     .then(data => {
-//       if (data.status === 'OK') {
-//         // Take the formatted address of the first result
-//         const address = data.results[0].formatted_address;
-//         this.pickupLocation = address;
-//         console.log('Pickup location:', address);
-//       } else {
-//         console.error('Reverse geocoding error:', data.status);
-//       }
-//     })
-//     .catch(err => console.error('Fetch error:', err));
-// }
-
-//   function showForm() {
-//     const service = document.getElementById("service").value;
-//     const form = document.getElementById("detailsForm");
-// 	const carIcon = document.getElementById("carIcon");
-
-//     if (service !== "") {
-//         form.classList.remove("hidden");
-//     } else {
-//         form.classList.add("hidden");
-//     }
-// }
-// service.addEventListener("change", function(){
-
-//     if(service.value !== ""){
-//         icon.style.display = "block";
-//     }
-//     else{
-//         icon.style.display = "none";
-//     }
-
-// });
-
+ 
 }

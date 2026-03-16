@@ -11,6 +11,7 @@ import { ActivityComponent } from './driver-dashboard/activity/activity.componen
 import { UserBookingComponent } from './booking-flow/user-booking.component';
 import { PopupComponent } from './popup/popup.component';
 import { UserExistingBookingComponent } from './user-existing-booking/user-existing-booking.component';
+import { PaymentComponent } from './payment/payment.component';
 
 export const routes: Routes = [
     {
@@ -60,6 +61,10 @@ export const routes: Routes = [
     {
         path:'user-bookings/exist',
         component:UserExistingBookingComponent
+    },
+    {
+        path:'payment/:id',
+        component:PaymentComponent
     }
 ];
 
