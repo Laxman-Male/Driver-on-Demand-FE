@@ -89,9 +89,27 @@ getCompletedRides(mobile: string): Observable<PendingRide[]> {
   return this.http.get<PendingRide[]>(`http://localhost:8000/get-completed-rides?mobile=${mobile}`);
 }
 
+ getDriverHistory(mobile: string): Observable<PendingRide[]> {
+  return this.http.get<PendingRide[]>(`http://localhost:8000/driver-completed-history?mobile=${mobile}`);
+}
 
 completeRideApi(bookingId: number): Observable<any> {
   return this.http.get(`http://localhost:8000/complete-ride?id=${bookingId}`);
+}
+
+// ride.service.ts
+
+getAllUserBookings(mobile: string): Observable<PendingRide[]> {
+  return this.http.get<PendingRide[]>(`http://localhost:8000/get-all-bookings?mobile=${mobile}`);
+}
+
+//payment 
+ getPaymentInfo(bookingId: number): Observable<any> {
+  return this.http.get(`http://localhost:8000/get-payment-info?id=${bookingId}`);
+}
+
+processPayment(payload: any): Observable<any> {
+  return this.http.post(`http://localhost:8000/process-payment`, payload);
 }
 
 

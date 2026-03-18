@@ -1,0 +1,37 @@
+<div class="payment-wrapper">
+  <div class="payment-card" *ngIf="!paymentSuccess">
+    <div class="header">
+      <i class="fa-solid fa-shield-check"></i>
+      <h2>Secure Checkout</h2>
+      <p>Booking ID: #{{ bookingId }}</p>
+    </div>
+
+    <div class="fare-box">
+      <small>Amount to Pay</small>
+      <h1>₹{{ amount  }}</h1>
+    </div>
+
+    <div class="qr-container">
+      <p>Scan with any UPI App</p>
+      <div class="qr-frame">
+        <img [src]="qrCodeUrl" *ngIf="qrCodeUrl" alt="Payment QR">
+        <div class="loader" *ngIf="!qrCodeUrl"></div>
+      </div>
+      <span class="upi-id">{{ upiId }}</span>
+    </div>
+
+    <button class="pay-btn" (click)="confirmPayment()" [disabled]="isProcessing">
+      <span *ngIf="!isProcessing">I Have Paid</span>
+      <span *ngIf="isProcessing" class="verify-text">Verifying with Bank...</span>
+    </button>
+  </div>
+
+  <div class="success-card" *ngIf="paymentSuccess">
+    <div class="success-icon">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <h2>Payment Successful!</h2>
+    <p>Transaction ID: TXN-{{ bookingId }}9921</p>
+    <button class="finish-btn" (click)="finish()">View My Rides</button>
+  </div>
+</div>

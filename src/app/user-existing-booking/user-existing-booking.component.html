@@ -1,86 +1,103 @@
 <div class="rides-container">
-    <p (click)="gotoHomePage()" style="cursor: pointer;">  ⬅️ </p>
-  <h2>My Booked Rides</h2>
+  <div class="header-section">
+    <button (click)="gotoHomePage()" class="back-btn">
+       ⬅️
+    </button>
+    <h2>My Booked Rides</h2>
+  </div>
 
-  <div class="ride-card">
+  <div *ngIf="isLoading" class="loader-container">
+    <div class="spinner"></div>
+    <p>Fetching your journeys...</p>
+  </div>
+
+  <div class="ride-card" *ngFor="let ride of userBookings">
     <div class="card-header">
-      <h3>Hourly Driver</h3>
-      <span class="status-badge pending">Pending</span>
+      <div class="service-meta">
+        <h3>{{ ride.serviceType }}</h3>
+        <span class="booking-id">#BK-00{{ ride.bookingId }}</span>
+      </div>
+      <span class="status-badge" [ngClass]="ride.status.toLowerCase()">
+        {{ ride.status }}
+      </span>
     </div>
 
     <div class="card-body">
-      <div class="detail-row">
-        <i class="fa-solid fa-location-dot"></i>
-        <div class="detail-text">
-          <small>Pickup</small>
-          <p>Dattawadi, Anandnagar, Pune City</p>
+      <div class="route-box" *ngIf="ride.pickupLocation">
+        <div class="route-line">
+          <div class="dot green"></div>
+          <div class="line"></div>
+          <div class="dot red"></div>
+        </div>
+        <div class="route-details">
+          <div class="location-item">
+            <small>Pickup</small>
+            <p>{{ ride.pickupLocation }}</p>
+          </div>
+          <div class="location-item">
+            <small>Drop</small>
+            <p>{{ ride.dropLocation }}</p>
+          </div>
         </div>
       </div>
 
-      <div class="detail-row">
-        <i class="fa-solid fa-location-arrow"></i>
+      <div class="detail-row" *ngIf="ride.address">
+        <i class="fa-solid fa-house-chimney"></i>
         <div class="detail-text">
-          <small>Drop</small>
-          <p>Karve Nagar, Pune</p>
+          <small>Service Address</small>
+          <p>{{ ride.address }}</p>
         </div>
       </div>
 
-      <div class="detail-grid">
-        <div class="grid-item">
+      <div class="info-grid">
+        <div class="info-item" *ngIf="ride.startDate">
+          <i class="fa-regular fa-calendar"></i>
+          <div class="text">
+            <small>Date</small>
+            <p>{{ ride.startDate }}</p>
+          </div>
+        </div>
+        <div class="info-item" *ngIf="ride.startTime">
           <i class="fa-regular fa-clock"></i>
-          <div>
+          <div class="text">
             <small>Time</small>
-            <p>23:00</p>
+            <p>{{ ride.startTime }}</p>
           </div>
         </div>
-        <div class="grid-item">
-          <i class="fa-solid fa-hourglass-half"></i>
-          <div>
+        <div class="info-item" *ngIf="ride.noOfHours">
+          <i class="fa-solid fa-stopwatch"></i>
+          <div class="text">
             <small>Duration</small>
-            <p>5 Hours</p>
+            <p>{{ ride.noOfHours }} Hours</p>
           </div>
         </div>
+      </div>
+
+      <div class="car-box" *ngIf="ride.hasCar">
+        <div class="car-icon-bg">
+          <i class="fa-solid fa-car-side"></i>
+        </div>
+        <div class="car-info">
+          <p><b>{{ ride.carName }}</b></p>
+          <small>{{ ride.carNumber }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="dist">
+        <i class="fa-solid fa-road"></i> {{ ride.distance || '0' }} km
+      </div>
+      <div class="price">
+        <small>Total Fare</small>
+        <span>₹{{ ride.totalFare?.toFixed(2) }}</span>
       </div>
     </div>
   </div>
 
-  <div class="ride-card">
-    <div class="card-header">
-      <h3>Weekly Driver</h3>
-      <span class="status-badge completed">Completed</span>
-    </div>
-
-    <div class="card-body">
-      <div class="detail-row">
-        <i class="fa-solid fa-house"></i>
-        <div class="detail-text">
-          <small>Address</small>
-          <p>123 Main Street, Shivaji Nagar, Pune</p>
-        </div>
-      </div>
-
-      <div class="detail-grid">
-        <div class="grid-item">
-          <i class="fa-regular fa-calendar-check"></i>
-          <div>
-            <small>Start Date</small>
-            <p>2026-03-16</p>
-          </div>
-        </div>
-        <div class="grid-item">
-          <i class="fa-regular fa-calendar-xmark"></i>
-          <div>
-            <small>End Date</small>
-            <p>2026-03-23</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="car-details-box">
-        <i class="fa-solid fa-car"></i>
-        <span><b>My Car:</b> Honda City (MH12 AB 1234)</span>
-      </div>
-    </div>
+  <div *ngIf="!isLoading && userBookings.length === 0" class="empty-state">
+    <i class="fa-solid fa-car-rear"></i>
+    <p>No rides found. Ready to book your first one?</p>
+    <button (click)="gotoHomePage()">Book Now</button>
   </div>
-
 </div>
