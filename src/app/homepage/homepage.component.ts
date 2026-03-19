@@ -49,7 +49,7 @@ toggleMenu() {
   console.log(this.isMenuOpen)
 }
 
-  
+       
  menuClick(message:any) {
     alert(message);
     console.log("message",message)
