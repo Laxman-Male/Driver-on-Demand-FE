@@ -54,7 +54,7 @@ toggleMenu() {
     alert(message);
     console.log("message",message)
     console.log(message)
-    console.log("message")
+    
 }
 
  buttonAction() {
