@@ -1,0 +1,84 @@
+* {
+    
+    font-family: Arial, sans-serif;
+}
+
+.inner{
+   padding: 30px;
+}
+
+label{
+	font-weight: bold;
+	font-size: 19px;
+    margin-bottom: -20px;
+}
+
+input{
+	width: 60%;
+	height: 20px;
+	border: 2px solid black;
+	border-radius: 8px;
+	padding: 8px;
+	font-size: 14px;
+}
+
+input:focus{
+	box-shadow: 0 0 7px grey;
+	transition: 0.3s;
+}
+
+.submit{
+	width: 14%;
+	height: 40px;
+	border: 1px solid rgb(115, 213, 243);
+	border-radius: 9px;
+	background-color: rgb(11, 88, 124);
+	color: white;
+	padding: 8px;
+	font-size: 19px;
+}
+
+.cancel{
+	width: 14%;
+	height: 40px;
+	border: 1px solid rgb(249, 72, 72);
+	border-radius: 9px;
+	background-color: rgb(236, 88, 88);
+	color: white;
+	padding: 8px;
+	font-size: 19px;
+}
+
+.carDetails{
+    border: 1px solid rgb(127, 209, 247);
+    border-radius: 20px;
+    width: 600px;
+    background-color: rgb(164, 236, 245);
+}
+.formField{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    justify-self: center;
+}
+#buttonForSub{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.submit:hover{
+    background-color: rgb(11, 91, 132);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.cancel:hover{
+    background-color: rgb(245, 71, 71);
+    transform: scale(1.1);
+    cursor: pointer;
+}

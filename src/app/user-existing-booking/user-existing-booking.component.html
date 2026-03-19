@@ -1,0 +1,103 @@
+<div class="rides-container">
+  <div class="header-section">
+    <button (click)="gotoHomePage()" class="back-btn">
+       ⬅️
+    </button>
+    <h2>My Booked Rides</h2>
+  </div>
+
+  <div *ngIf="isLoading" class="loader-container">
+    <div class="spinner"></div>
+    <p>Fetching your journeys...</p>
+  </div>
+
+  <div class="ride-card" *ngFor="let ride of userBookings">
+    <div class="card-header">
+      <div class="service-meta">
+        <h3>{{ ride.serviceType }}</h3>
+        <span class="booking-id">#BK-00{{ ride.bookingId }}</span>
+      </div>
+      <span class="status-badge" [ngClass]="ride.status.toLowerCase()">
+        {{ ride.status }}
+      </span>
+    </div>
+
+    <div class="card-body">
+      <div class="route-box" *ngIf="ride.pickupLocation">
+        <div class="route-line">
+          <div class="dot green"></div>
+          <div class="line"></div>
+          <div class="dot red"></div>
+        </div>
+        <div class="route-details">
+          <div class="location-item">
+            <small>Pickup</small>
+            <p>{{ ride.pickupLocation }}</p>
+          </div>
+          <div class="location-item">
+            <small>Drop</small>
+            <p>{{ ride.dropLocation }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-row" *ngIf="ride.address">
+        <i class="fa-solid fa-house-chimney"></i>
+        <div class="detail-text">
+          <small>Service Address</small>
+          <p>{{ ride.address }}</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item" *ngIf="ride.startDate">
+          <i class="fa-regular fa-calendar"></i>
+          <div class="text">
+            <small>Date</small>
+            <p>{{ ride.startDate }}</p>
+          </div>
+        </div>
+        <div class="info-item" *ngIf="ride.startTime">
+          <i class="fa-regular fa-clock"></i>
+          <div class="text">
+            <small>Time</small>
+            <p>{{ ride.startTime }}</p>
+          </div>
+        </div>
+        <div class="info-item" *ngIf="ride.noOfHours">
+          <i class="fa-solid fa-stopwatch"></i>
+          <div class="text">
+            <small>Duration</small>
+            <p>{{ ride.noOfHours }} Hours</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-box" *ngIf="ride.hasCar">
+        <div class="car-icon-bg">
+          <i class="fa-solid fa-car-side"></i>
+        </div>
+        <div class="car-info">
+          <p><b>{{ ride.carName }}</b></p>
+          <small>{{ ride.carNumber }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="dist">
+        <i class="fa-solid fa-road"></i> {{ ride.distance || '0' }} km
+      </div>
+      <div class="price">
+        <small>Total Fare</small>
+        <span>₹{{ ride.totalFare?.toFixed(2) }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && userBookings.length === 0" class="empty-state">
+    <i class="fa-solid fa-car-rear"></i>
+    <p>No rides found. Ready to book your first one?</p>
+    <button (click)="gotoHomePage()">Book Now</button>
+  </div>
+</div>

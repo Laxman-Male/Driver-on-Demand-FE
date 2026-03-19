@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Your Ride</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+
+  <body>
+    <div id="heading">
+      <h1>Book Your Ride</h1>
+      <h4>Select a service and fill in the details</h4>
+    </div>
+    <div class="booking-container">
+      <!-- services list -->
+      <label for="service">Select Service</label>
+      <select id="service" [(ngModel)]="selectedService">
+        <option value="">-- Select Service --</option>
+        <option value="Hourly Driver">Hourly Basis</option>
+        <option value="Weekly Driver">Weekly Driver</option>
+        <option value="Monthly Driver">Monthly Driver</option>
+        <option value="One Way">One way</option>
+        <option value="Round Trip">Round Trip</option>
+        <option value="Outstation Driver">Outstation Driver</option>
+        <!-- <option value="Temporary Driver">Temporary Driver</option> -->
+        <!-- <option value="Pickup Driver">Pickup Driver</option> -->
+      </select>
+      <div class="carIcon">
+        <i class="fa-solid fa-car-side"></i>
+      </div>
+      <!-- details of rides -->
+      <div *ngIf="selectedService == 'Hourly Driver'" id="detailsForm">
+        <label>Pickup Location</label>
+        <div id="pickUpLocationDisplay">
+          <input
+            type="text"
+            placeholder="Enter pickup location"
+            [(ngModel)]="pickupLocation"
+          />
+          <p class="getCurrentLocation" (click)="getCurrentLocation()" >Get current Location</p>
+        </div>
+
+        <label style="margin-top: 10px">Drop Location</label>
+        <input
+          type="text"
+          placeholder="Enter drop location"
+          [(ngModel)]="dropLocation"
+        />
+
+        <label>Number of Hours</label>
+        <input
+          type="number"
+          placeholder="Enter number of hours"
+          [(ngModel)]="noOfHours"
+        />
+      </div>
+
+      <div
+        *ngIf="
+          selectedService == 'Weekly Driver' ||
+          selectedService == 'Monthly Driver'
+        "
+        id="detailsForm"
+      >
+        <label>Address </label>
+        <input type="text" placeholder="Enter address" [(ngModel)]="address" />
+
+        <label>From Date</label>
+        <input type="date" placeholder="Enter date" [(ngModel)]="startDate" />
+
+        <label>End Date</label>
+        <!-- <label *ngIf="selectedService == 'Monthly Driver'"
+          >Number of Months</label
+        > -->
+        <input
+          type="date"
+          placeholder="Enter date"
+          [(ngModel)]="endDate"
+        />
+      </div>
+
+      <div
+        *ngIf="selectedService == 'One Way' || selectedService == 'Round Trip'"
+        id="detailsForm"
+      >
+        <label>Pick Up Location </label>
+        <div id="pickUpLocationDisplay">
+          <input
+            type="text"
+            placeholder="Enter pickup location"
+            [(ngModel)]="pickupLocation"
+          />
+                 <p class="getCurrentLocation" (click)="getCurrentLocation()" >Get current Location</p>
+        </div>
+
+        <label >Drop Location</label>
+        <input
+          type="text"
+          placeholder="Drop location"
+          [(ngModel)]="dropLocation"
+          
+        />
+
+        <label *ngIf="selectedService!='One Way' && selectedService!='Round Trip'">From Date</label>
+        <input type="date" placeholder="Enter date" [(ngModel)]="startDate" *ngIf="selectedService!='One Way' && selectedService!='Round Trip'" />
+
+        <label>Number of Hours</label>
+        <input
+          type="number"
+          placeholder="Enter number of days"
+          [(ngModel)]="noOfHours"
+        />
+      </div>
+
+      <div *ngIf="selectedService == 'Outstation Driver'" id="detailsForm">
+        <label>Pick Up Location </label>
+        <div id="pickUpLocationDisplay">
+          <input
+            type="text"
+            placeholder="Enter pickup location"
+            [(ngModel)]="pickupLocation"
+          />
+                    <p class="getCurrentLocation" (click)="getCurrentLocation()" >Get current Location</p>
+        </div>
+
+        <label> Destination </label>
+        <input
+          type="text"
+          placeholder="Destination"
+          [(ngModel)]="dropLocation"
+        />
+
+        <!-- <label>From Date</label>
+        <input type="date" placeholder="Enter date" [(ngModel)]="startDate" /> -->
+
+        <!-- <label> Time </label>
+        <input type="time" placeholder="Enter time" [(ngModel)]="startTime" /> -->
+
+        <label>Number of Days</label>
+        <input
+          type="number"
+          placeholder="Enter number of days"
+          [(ngModel)]="noOfDays"
+        />
+      </div>
+
+
+      <!-- comman part -->
+      <div *ngIf="selectedService ">
+        <div *ngIf="selectedService !='Weekly Driver' && selectedService!='Monthly Driver'">
+
+          <label> Date </label>
+          <input type="date" style="width: 150px" [(ngModel)]="startDate" /> <br />
+        </div>
+
+        <label> Time </label>
+        <input type="time" style="width: 150px" [(ngModel)]="startTime" /> <br />
+        <label>Do you have a car?</label>
+        <div class="radio-group">
+          <label
+            ><input
+              type="radio"
+              name="car"
+              [(ngModel)]="hasCar"
+              [value]="true"
+              (change)="onCarChange()"
+            />YES</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="car"
+              [(ngModel)]="hasCar"
+              [value]="false"
+              (change)="onCarChange()"
+            />NO</label
+          >
+        </div>
+
+        <div id="calculatePrice" *ngIf="pickupLocation || dropLocation">
+          
+          <p (click)="getDropCoordinates()"> Calculate Price </p>
+        </div>
+
+        <!-- <div *ngIf="selectedService=='Weekly Driver || Monthly Driver'"> -->
+        <div *ngIf="selectedService !='Weekly Driver' && selectedService!='Monthly Driver'">
+
+
+          <h3> Your ride </h3>
+          <div id="yourRide">
+            <p> <b> {{distanceText}} 🚗</b> </p>
+            <p> <b> {{durationText}} 🕒</b> </p>
+            <p> <b> {{totalFare}} RS </b> </p>
+          </div>
+        </div>
+
+        <div id="showCarDetailsToUser" *ngIf="carName != '' && carNumber != ''">
+          <p>
+            Car Name: <b> {{ carName }} </b>
+          </p>
+          <p>
+            Car Number: <b> {{ carNumber }} </b>
+          </p>
+        </div>
+        <button class="book-btn" (click)="bookRide()">Book Now</button>
+
+        <div id="showMiddlePopUp">
+          <app-popup
+            *ngIf="showPopUp"
+            (close)="editRadio()"
+            (sendValue)="receiveCarDetails($event)"
+          >
+          </app-popup>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

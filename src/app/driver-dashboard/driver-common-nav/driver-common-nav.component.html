@@ -1,0 +1,12 @@
+ <div class="outer-container">
+    <p id="backBtn" (click)="goToHome()" style="cursor: pointer;"> ⬅️ </p>
+     
+           <h2> Driver Dashboard</h2>
+           
+            <div class="tabs">
+                <button (click)="gotoDashboradUpcomingRide()" [class.active-btn]="isActive('/driver-dashboard')" ><i class="fa-solid fa-car-side"></i> Upcoming</button>
+                <button (click)="gotoCurrentRide()" [class.active-btn]="isActive('/driver-current')"><i class="fa-solid fa-arrow-trend-up" ></i> Current</button>
+                <button (click)="gotoActivityPage()" [class.active-btn]="isActive('/driver-activity')"><i class="fa-solid fa-arrow-trend-up"></i> Activity</button>
+                <button (click)="gotoRewardPage()" [class.active-btn]="isActive('/driver-reward')"><i class="fa-solid fa-gift"></i> Rewards</button>
+            </div>
+        </div>

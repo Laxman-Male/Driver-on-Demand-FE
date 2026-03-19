@@ -1,0 +1,89 @@
+<div id="mainContainer-outside">
+  <div class="outer-container">
+
+    <app-driver-common-nav></app-driver-common-nav>
+
+    <h3>Upcoming Rides Requests</h3>
+
+       <div *ngFor="let ride of pendingRides" class="ride-card">
+
+      <div class="inner-container">
+
+        <div class="left-section">
+
+          <button>{{ ride.serviceType }}</button>
+
+          <ng-container *ngIf="ride.address">
+            <i class="fa-solid fa-house"></i>
+            <p> Address </p>
+            <h4>{{ ride.address }}</h4>
+          </ng-container>
+
+          <ng-container *ngIf="ride.pickupLocation">
+            <i class="fa-solid fa-location-dot"></i>
+            <p> Pickup </p>
+            <h4>{{ ride.pickupLocation }}</h4>
+          </ng-container>
+
+          <ng-container *ngIf="ride.startDate || ride.startTime">
+            <i class="fa-solid fa-calendar"></i> Date & Time
+            <h4>
+              <span *ngIf="ride.startDate">{{ ride.startDate | slice:0:10 }} </span>
+              <span *ngIf="ride.startTime"> &#64; {{ ride.startTime }}</span>
+            </h4>
+          </ng-container>
+
+          <ng-container *ngIf="ride.hasCar">
+            <i class="fa-regular fa-car-side"></i> Customer's Car
+            <h4>{{ ride.carName }} : ({{ ride.carNumber }})</h4>
+          </ng-container>
+
+          <ng-container *ngIf="ride.noOfHours || ride.noOfDays">
+            <i class="fa-solid fa-clock-rotate-left"></i> Duration
+            <h4>
+              <span *ngIf="ride.noOfHours">{{ ride.noOfHours }} Hours</span>
+              <span *ngIf="ride.noOfDays">{{ ride.noOfDays }} Days</span>
+            </h4>
+          </ng-container>
+
+        </div>
+
+        <div class="right-section">
+
+          <ng-container *ngIf="ride.dropLocation">
+            <i class="fa-solid fa-location-dot"></i> Drop
+            <h4>{{ ride.dropLocation }}</h4>
+          </ng-container>
+
+          <ng-container *ngIf="ride.endDate">
+            <i class="fa-regular fa-calendar-xmark"></i> End Date
+            <h4>{{ ride.endDate | slice:0:10 }}</h4>
+          </ng-container>
+
+          <ng-container *ngIf="ride.distance != null">
+            <i class="fa-solid fa-road"></i> Distance
+            <h4>{{ ride.distance }} km</h4>
+          </ng-container>
+          
+          <ng-container *ngIf="ride.totalFare != null">
+            <i class="fa-solid fa-indian-rupee-sign"></i> Est. Fare
+            <h2>₹{{ ride.totalFare }}</h2>
+          </ng-container>
+
+        </div>
+
+      </div>
+
+      <div class="action-buttons">
+          <button class="accept" (click)="acceptRideByDriver(ride)">Accept</button>
+        <button class="reject">Reject</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- <div *ngIf="gotoCurrentRide">
+  <app-current [fromUpcoming]="acceptedRideData"></app-current>
+</div> -->

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Ride UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+</head>
+<body>
+
+<div class="app-container">
+  <app-driver-common-nav></app-driver-common-nav>
+  
+  <h1 class="header-title">Current Ride</h1>
+
+  <div class="map-card">
+    <div class="map-icon">
+      <i class="fa-regular fa-paper-plane"></i>
+    </div>
+    <div class="map-title">Map showing route</div>
+    <div class="map-subtitle">
+      From: {{ currentRide?.pickupLocation || currentRide?.address || 'NA' }}<br>
+      To: {{ currentRide?.dropLocation || 'NA' }}
+    </div>
+  </div>
+
+  <div class="details-card">
+    
+    <div class="detail-row">
+      <div class="icon-container icon-user">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <div class="info-container">
+        <div class="info-label">Customer Name</div>
+        <div class="info-value">{{currentRide?.customerName || 'NA'}}</div> 
+      </div>
+    </div>
+
+    <div class="detail-row">
+      <div class="icon-container icon-distance">
+        <i class="fa-solid fa-location-arrow"></i>
+      </div>
+      <div class="info-container">
+        <div class="info-label">Total Distance</div>
+        <div class="info-value">{{ currentRide?.distance != null ? currentRide?.distance + ' km' : 'NA' }}</div>
+      </div>
+    </div>
+
+    <div class="detail-row">
+      <div class="icon-container icon-car">
+        <i class="fa-solid fa-car-side"></i>
+      </div>
+      <div class="info-container">
+        <div class="info-label">Car Details</div>
+        <div class="info-value">
+          {{ currentRide?.hasCar ? currentRide?.carName + ' (' + currentRide?.carNumber + ')' : 'No Customer Car' }}
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="detail-row">
+      <div class="icon-container icon-pickup">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <div class="info-container">
+        <div class="info-label">Pickup / Address</div>
+        <div class="info-value">{{ currentRide?.pickupLocation || currentRide?.address || 'NA' }}</div>
+      </div>
+    </div>
+
+    <div class="detail-row">
+      <div class="icon-container icon-drop">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <div class="info-container">
+        <div class="info-label">Drop</div>
+        <div class="info-value">{{ currentRide?.dropLocation || 'NA' }}</div>
+      </div>
+    </div>
+
+    <div class="detail-row">
+      <div class="icon-container icon-drop">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <div class="info-container">
+        <div class="info-label">Total amount </div>
+        <div class="info-value">{{ currentRide?.totalFare || 'NA' }} Rs</div>
+      </div>
+    </div>
+
+    <button 
+      (click)="completeRide()" 
+      [disabled]="!currentRide"   
+      [ngClass]="{'complete-btn': true, 'disabled-btn': !currentRide}">
+      Complete Ride
+    </button>
+
+  </div>
+</div>
+
+</body>
+</html>

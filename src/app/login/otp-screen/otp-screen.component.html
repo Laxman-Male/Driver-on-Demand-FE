@@ -1,0 +1,22 @@
+<div id="main_outer_container">
+
+    <div class="outer-container">
+        <div class="innner-container">
+            <h3>OTP Verification</h3>
+            <p>We have sent a verification code to +91 {{userEnteredNumber}} </p> 
+            <h4 id="phoneNumber"></h4>
+            <div class="otpBox">
+                
+                <ng-otp-input   
+                [config]="otpConfig"
+                (onInputChange)="onOtpChange($event)">
+            </ng-otp-input>
+            
+        </div>
+            <p>I didn't receive a code(00:21)</p>
+            <button (click)="redirectToName()">Confirm</button>
+            <p class="termsCondition">By clicking Confirm, you agree to our <a href="terms.html">Terms and Conditions</a> & <a href="terms.html">Privacy Policy.</a></p>
+        </div>
+    </div>
+    
+</div>

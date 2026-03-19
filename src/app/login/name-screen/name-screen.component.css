@@ -1,0 +1,126 @@
+*{
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background-color: #dff6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+     height: 100vh;
+    margin: 0px;
+}
+
+.outer-container{
+    background-color: #fff;
+    border-radius: 1rem;
+    text-align: center;
+    padding: 0 2rem;
+    height:26rem;
+    width: 50%;
+}
+
+input[type="text"]{
+    width: 50%;
+    height: 40px;
+    border-radius: 1rem;
+    margin: 0.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-left: 12px;
+    /* font-size: 1.3rem; */
+}
+
+label{
+    text-align: start;
+}
+
+p{
+    margin: 20px;
+}
+
+.userType {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.userType button {
+  flex: 1;
+  background: #eee;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: medium;
+  text-align: center;
+  width: 20px;
+  height: 2.8rem;
+  margin-top: 2px;
+    
+}
+
+/* .userType .active {
+    border: 1px dotted black;
+    background-color: #beebf9;
+} */
+
+#name{
+    width: 90%;
+    font-size: medium;
+    text-align: start;
+    padding: 4px 15px;
+}
+
+button{
+    border: 1px solid gray;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: medium;
+    text-align: center;
+    width: 50%;
+    height: 2.5rem;
+    margin-top: 1.8rem;
+    background-color: #17bbed;
+}
+
+ 
+button:hover {
+  background: #018496;
+  cursor: pointer;
+      border: 1px dotted black;
+}
+.userType button.active-category {
+   background: #018496;
+    color: white;
+
+}
+.danger{
+    color: red;
+    font-size: 10px;
+        margin-bottom: 0px;
+}
+ 
+@media (max-width: 500px) {
+
+    .userType button {
+  flex: 1;
+  background: #eee;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  width: 30px;
+  height: 2.8rem;
+  margin-top: 2px;
+    
+}
+.checkbox{
+    /* border: 2px solid red; */
+    align-self: center;
+    justify-self: center;
+    font-size: 12px;
+}
+
+}

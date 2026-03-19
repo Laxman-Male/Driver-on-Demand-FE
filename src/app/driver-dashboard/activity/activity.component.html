@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past Rides</title>
+  
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+</head>
+<body>
+
+ <div class="past-rides-container">
+  <app-driver-common-nav></app-driver-common-nav>
+  
+  <h1 class="page-title">Past Rides</h1>
+
+  <div class="ride-card" *ngFor="let ride of completedRides">
+    
+    <div class="card-header">
+      <div class="user-info">
+        <div class="user-name">{{ ride.customerName || 'Guest User' }}</div>
+        <div class="ride-badge">{{ ride.serviceType }}</div>
+      </div>
+      <div class="ride-date">
+        <i class="fa-regular fa-calendar"></i> {{ ride.startDate }} 
+        <span *ngIf="ride.startTime"> | {{ ride.startTime }}</span>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="location-row">
+        <div class="loc-icon icon-green"><i class="fa-solid fa-circle-dot"></i></div>
+        <div class="loc-details">
+          <span class="loc-label">Pickup</span>
+          <span class="loc-value">{{ ride.pickupLocation || ride.address }}</span>
+        </div>
+      </div>
+
+      <div class="location-row">
+        <div class="loc-icon icon-red"><i class="fa-solid fa-location-dot"></i></div>
+        <div class="loc-details">
+          <span class="loc-label">Drop</span>
+          <span class="loc-value">{{ ride.dropLocation || 'NA' }}</span>
+        </div>
+      </div>
+
+      <div class="ride-extra-container">
+        <div class="ride-stats">
+          <span><i class="fa-solid fa-car"></i> {{ ride.hasCar ? ride.carName : 'Driver Car' }}</span>
+          <span><i class="fa-solid fa-route"></i> {{ ride.distance }} km</span>
+          <span *ngIf="ride.noOfHours"><i class="fa-regular fa-clock"></i> {{ ride.noOfHours }} hrs</span>
+        </div>
+        
+        <div class="ride-fare">
+          <span class="fare-label">Earned</span>
+          <span class="fare-amount">₹{{ ride.totalFare?.toFixed(2) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="completedRides.length === 0" class="empty-state">
+    <i class="fa-solid fa-box-open"></i>
+    <p>No rides completed yet.</p>
+  </div>
+</div> 
+
+</body>
+</html>

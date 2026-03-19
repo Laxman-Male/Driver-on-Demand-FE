@@ -86,3 +86,5 @@ Thumbs.db
 
 # NEED TO RUN TO MAKE THE PROJECT LIVE 
 # ng deploy --base-href=/Driver-on-Demand-FE/
+#---------- for email sending purpose---------------
+#npm install emailjs-com 

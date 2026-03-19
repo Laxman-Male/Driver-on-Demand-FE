@@ -1,0 +1,65 @@
+.payment-wrapper {
+  height: 100vh;
+  background-color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.payment-card, .success-card {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: slideIn 0.4s ease-out;
+}
+
+.header i { color: #3b82f6; font-size: 40px; margin-bottom: 10px; }
+.header h2 { color: #1e293b; margin: 0; }
+.header p { color: #64748b; font-size: 14px; }
+
+.fare-box {
+  background: #eff6ff;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 30px 0;
+}
+
+.fare-box h1 { color: #1e40af; margin: 5px 0; font-size: 42px; }
+
+.qr-frame {
+  background: white;
+  padding: 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 15px 0;
+}
+
+.qr-frame img { width: 200px; height: 200px; }
+
+.pay-btn {
+  width: 100%;
+  background: #1e293b;
+  color: white;
+  padding: 18px;
+  border-radius: 15px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pay-btn:hover { background: #0f172a; }
+
+.success-icon { font-size: 60px; color: #10b981; margin-bottom: 20px; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
