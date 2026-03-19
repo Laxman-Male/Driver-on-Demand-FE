@@ -179,7 +179,11 @@ editRadio(){
     this.hasCar=true
   }
 
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> fixes/homepage
   
   getCurrentLocation() {
   if (navigator.geolocation) {
