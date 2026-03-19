@@ -53,6 +53,7 @@ toggleMenu() {
  menuClick(message:any) {
     alert(message);
     console.log("message",message)
+    console.log(message)
 }
 
  buttonAction() {
