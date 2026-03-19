@@ -180,11 +180,16 @@ editRadio(){
   }
 
 <<<<<<< HEAD
+ 
+
+=======
+<<<<<<< HEAD
 
 =======
  
 >>>>>>> fixes/homepage
   
+>>>>>>> 427089e5026df7f00aa8460b4727b8e9e68145c1
   getCurrentLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
